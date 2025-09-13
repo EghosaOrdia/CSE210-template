@@ -13,7 +13,7 @@ class Program
 
         while (exit == false)
         {
-            Console.Write("Please select one of the following choices:\n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\nWhat would you like to do today? ");
+            Console.Write("Please select one of the following choices:\n1. Write\n2. Display\n3. Load\n4. Save\n5. Show all saved journals\n6. Quit\nWhat would you like to do today? ");
             string userResponse = Console.ReadLine();
             int userInput = int.Parse(userResponse);
             string randomPrompt = promptGenerator.GetRandomPrompt();
@@ -47,8 +47,13 @@ class Program
                 string filename = Console.ReadLine();
                 journal.Save(filename);
             }
-            // Quit
+            // Show Saved
             else if (userInput == 5)
+            {
+                Journal.ShowAllSavedJournals();
+            }
+            // Quit
+            else if (userInput == 6)
             {
                 exit = true;
             }

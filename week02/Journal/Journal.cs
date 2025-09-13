@@ -4,9 +4,9 @@ using System.IO;
 
 public class Journal
 {
-    private readonly List<string> _entries = [];
+    private List<string> _entries = [];
     private string _filename = "";
-    
+
     public void AddEntry(string entry)
     {
         _entries.Add(entry);
@@ -23,7 +23,6 @@ public class Journal
         foreach (string entry in _entries)
         {
             Console.WriteLine(entry);
-            Console.WriteLine("-----");
         }
     }
 
@@ -40,6 +39,7 @@ public class Journal
 
     public void Load(string filename)
     {
+        _entries = [];
         _filename = filename;
 
         if (!File.Exists(_filename))
@@ -49,8 +49,31 @@ public class Journal
         }
         string[] lines = System.IO.File.ReadAllLines(_filename);
 
-        foreach (string line in lines) {
+        foreach (string line in lines)
+        {
             _entries.Add(line);
         }
     }
+
+    public static void ShowAllSavedJournals(string extension = "*.txt")
+    {
+        string currentDirectory = Directory.GetCurrentDirectory();
+        string[] files = Directory.GetFiles(currentDirectory, extension);
+
+        if (files.Length == 0)
+
+        {
+            Console.WriteLine("No journal files found in this directory.\n");
+            return;
+        }
+
+          Console.WriteLine("Here are your saved journal files:\n");
+
+        for (int i = 0; i < files.Length; i++)
+        {
+            string fileName = Path.GetFileName(files[i]);
+            Console.WriteLine($"{i + 1}. {fileName}");
+        }
+        Console.WriteLine();
+    } 
     }

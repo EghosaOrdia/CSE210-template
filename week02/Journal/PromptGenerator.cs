@@ -1,8 +1,8 @@
 public class PromptGenerator
 {
-    public Random rnd;
-    public List<string> _Prompts =
-   [
+    private readonly Random _rnd = new();
+    private readonly List<string> _prompts =
+    [
         "Who was the most interesting person I interacted with today?",
         "How did I see the hand of the Lord in my life today?",
         "If I had one thing I could do over today, what would it be?",
@@ -37,11 +37,11 @@ public class PromptGenerator
         "What's one area of your life that needs more attention?",
         "How would you describe today to a stranger?",
         "What emotion dominated your day, and what triggered it?"
-   ];
+    ];
 
     public string GetRandomPrompt()
     {
-        int idx = rnd.Next(_Prompts.Count);
-        return _Prompts[idx];
+        int idx = _rnd.Next(_prompts.Count);
+        return _prompts[idx];
    }
 }
