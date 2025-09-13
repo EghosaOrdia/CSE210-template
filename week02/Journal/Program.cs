@@ -1,3 +1,4 @@
+// Added a function to show the user all saved Journals
 using System;
 using System.IO;
 
