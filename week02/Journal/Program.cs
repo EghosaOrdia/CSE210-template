@@ -8,38 +8,49 @@ class Program
         Console.WriteLine("Hello World! This is the Journal Project.");
 
         var journal = new Journal();
-        DateTime theCurrentTime = DateTime.Now;
-        string DateText = theCurrentTime.ToShortDateString();
-        int option = -1;
-        Random rnd = new();
+        var promptGenerator = new PromptGenerator();
+        bool exit = false;
 
-        while (option != 5)
+        while (exit == false)
         {
-            int userOption = journal.ShowOptions();
+            Console.Write("Please select one of the following choices:\n1. Write\n2. Display\n3. Load\n4. Save\n5. Quit\nWhat would you like to do today? ");
+            string userResponse = Console.ReadLine();
+            int userInput = int.Parse(userResponse);
+            string randomPrompt = promptGenerator.GetRandomPrompt();
 
-            int idx = rnd.Next(journal.Prompts.Count);
-            string randomPrompt = journal.Prompts[idx];
-            if (userOption == 1)
+            // Write
+            if (userInput == 1)
             {
                 Console.Write(randomPrompt + "\n> ");
                 string response = Console.ReadLine();
+                DateTime theCurrentTime = DateTime.Now;
+                string DateText = theCurrentTime.ToShortDateString();
                 string entry = $"Date: {DateText} - Prompt: {randomPrompt}\n{response}";
                 journal.AddEntry(entry);
             }
-            else if (userOption == 2)
+            // Display
+            else if (userInput == 2)
             {
                 journal.DisplayEntries();
             }
-            else if (userOption == 3)
+            // Load
+            else if (userInput == 3)
             {
                 Console.WriteLine("What is the filename?");
                 string filename = Console.ReadLine();
+                journal.Load(filename);
             }
-            else if (userOption == 4)
+            // Save
+            else if (userInput == 4)
             {
                 Console.WriteLine("What is the filename? (include.txt as extension) ");
                 string filename = Console.ReadLine();
                 journal.Save(filename);
+            }
+            // Quit
+            else if (userInput == 5)
+            {
+                exit = true;
             }
         }
     }
