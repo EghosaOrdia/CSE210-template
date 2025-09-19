@@ -21,17 +21,19 @@ class Program
             {
                 quit = true;
             }
-            else
+            else if (string.IsNullOrWhiteSpace(userResponse))
             {
                 Console.WriteLine("Enter scripture(Proverbs, Genesis, Psalms, Revelations) eg. Proverbs: ");
                 string book = Console.ReadLine().ToLower();
                 Console.WriteLine("Enter chapter(only chapter 1 available): ");
-                int chapter = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter start verse(only verses 1-6 available): ");
-                int verse = int.Parse(Console.ReadLine());
+                int startVerse = int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter end verse(only verses 1-6 available): ");
                 int endVerse = int.Parse(Console.ReadLine());
-                reference = new Reference(book, chapter, verse, endVerse);
+                reference = new Reference(book, 1, startVerse, endVerse);
+            }
+            else
+            {
+                Console.WriteLine("Please enter a valid input");
             }
         }
     }
