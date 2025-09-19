@@ -1,10 +1,9 @@
 public class Word
 {
-    private string _text = "";
+    private string _text;
+    private bool _isHidden;
     private string _cleanedWord = "";
     private string _trailingPunctuations = "";
-
-    private bool _isHidden;
 
     public Word(string word)
     {

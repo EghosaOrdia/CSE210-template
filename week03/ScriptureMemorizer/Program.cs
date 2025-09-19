@@ -4,37 +4,33 @@ class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
+        ScriptureGenerator scriptureGenerator = new();
+        Reference reference = scriptureGenerator.GetScriptureReference();
+        string text = scriptureGenerator.GetScriptureText();
 
-        Reference reference = new("proverbs", 1, 1);
-        bool quit = false;
+        Scripture scripture = new(reference, text);
 
-        while (!quit)
+        while (true)
         {
-            Console.WriteLine(reference.GetDisplayText());
-            Console.WriteLine(reference.GetScriptureText());
+            Console.Clear();
+            Console.WriteLine(scripture.GetDisplayText());
+            if (scripture.IsCompletelyHidden())
+            {
+                break;
+            }
 
-            Console.WriteLine("Press enter to continue or type 'quit' to finish: ");
-            string userResponse = Console.ReadLine().ToLower();
-
-            if (userResponse == "quit")
+            Console.WriteLine("\nPress Enter to hide words or type \"quit\" to exit.");
+            string input = Console.ReadLine();
+            if (input != null && input.Trim().ToLower() == "quit")
             {
-                quit = true;
+                break;
             }
-            else if (string.IsNullOrWhiteSpace(userResponse))
-            {
-                Console.WriteLine("Enter scripture(Proverbs, Genesis, Psalms, Revelations) eg. Proverbs: ");
-                string book = Console.ReadLine().ToLower();
-                Console.WriteLine("Enter chapter(only chapter 1 available): ");
-                int startVerse = int.Parse(Console.ReadLine());
-                Console.WriteLine("Enter end verse(only verses 1-6 available): ");
-                int endVerse = int.Parse(Console.ReadLine());
-                reference = new Reference(book, 1, startVerse, endVerse);
-            }
-            else
-            {
-                Console.WriteLine("Please enter a valid input");
-            }
+            scripture.HideRandomWords(3);
         }
+
+        // Final display (all hidden or quitting)
+        Console.Clear();
+        Console.WriteLine(scripture.GetDisplayText());
+        Console.WriteLine("\nGoodbye.");
     }
 }
