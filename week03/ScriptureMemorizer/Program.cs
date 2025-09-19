@@ -23,16 +23,15 @@ class Program
             }
             else
             {
-                Console.Write("Enter scripture(Proverbs, Genesis, Psalms, Revelations): ");
+                Console.WriteLine("Enter scripture(Proverbs, Genesis, Psalms, Revelations) eg. Proverbs: ");
                 string book = Console.ReadLine();
-                Console.Write("Enter chapter(only chapter 1 available): ");
+                Console.WriteLine("Enter chapter(only chapter 1 available): ");
                 int chapter = int.Parse(Console.ReadLine());
-                Console.Write("Enter start verse(only verses 1-6 available): ");
+                Console.WriteLine("Enter start verse(only verses 1-6 available): ");
                 int verse = int.Parse(Console.ReadLine());
-                Console.Write("Enter end verse(only verses 1-6   available): ");
+                Console.WriteLine("Enter end verse(only verses 1-6 available): ");
                 int endVerse = int.Parse(Console.ReadLine());
                 reference = new Reference(book, chapter, verse, endVerse);
-                reference.GetDisplayText();
             }
         }
     }

@@ -11,7 +11,7 @@ public class Reference
 
     private readonly Dictionary<string, Dictionary<int, string>> _scriptures = new()
     {
-        ["Proverbs"] = new Dictionary<int, string>
+        ["proverbs"] = new Dictionary<int, string>
         {
             [1] = "My son, forget not my law; but let thine heart keep my commandments:",
             [2] = "For length of days, and long life, and peace, shall they add to thee.",
@@ -20,7 +20,7 @@ public class Reference
             [5] = "Trust in the Lord with all thine heart; and lean not unto thine own understanding.",
             [6] = "In all thy ways acknowledge him, and he shall direct thy paths."
         },
-        ["Genesis"] = new Dictionary<int, string>
+        ["genesis"] = new Dictionary<int, string>
         {
 
             [1] = "In the beginning God created the heaven and the earth.",
@@ -31,7 +31,7 @@ public class Reference
             [6] = "And God said, Let there be a firmament in the midst of the waters, and let it divide the waters from the waters."
 
         },
-        ["Psalms"] = new Dictionary<int, string>
+        ["psalms"] = new Dictionary<int, string>
         {
             [1] = "Blessed is the man that walketh not in the counsel of the ungodly, nor standeth in the way of sinners, nor sitteth in the seat of the scornful.",
             [2] = "But his delight is in the law of the Lord; and in his law doth he meditate day and night.",
@@ -40,7 +40,7 @@ public class Reference
             [5] = "Therefore the ungodly shall not stand in the judgment, nor sinners in the congregation of the righteous.",
             [6] = "For the Lord knoweth the way of the righteous: but the way of the ungodly shall perish."
         },
-        ["Revelation"] = new Dictionary<int, string>
+        ["revelation"] = new Dictionary<int, string>
         {
             [1] = "The Revelation of Jesus Christ, which God gave unto him, to shew unto his servants things which must shortly come to pass...",
             [2] = "Who bare record of the word of God, and of the testimony of Jesus Christ, and of all things that he saw.",
