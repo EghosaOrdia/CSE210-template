@@ -84,9 +84,9 @@ public class Reference
         {
             if (_scriptures[_book].TryGetValue(i, out string value))
             {
-                 verses.Add($"{i}: {value}");
+                 verses.Add($"{i}: {value}\n");
             }
         }
-        return string.Join(" ", verses);
+        return string.Join("", verses);
     }
 }
