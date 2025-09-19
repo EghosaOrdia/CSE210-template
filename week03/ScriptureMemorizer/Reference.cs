@@ -24,7 +24,7 @@ public class Reference
         {
 
             [1] = "In the beginning God created the heaven and the earth.",
-            [2] = "And the earth was without form, and void; and darkness was upon the face of the deep. And the Spirit of God moved upon the face of the waters.",
+            [2] = "And the earth was without form, and void; and darkness was upon the face of the deep And the Spirit of God moved upon the face of the waters.",
             [3] = "And God said, Let there be light: and there was light.",
             [4] = "And God saw the light, that it was good: and God divided the light from the darkness.",
             [5] = "And God called the light Day, and the darkness he called Night. And the evening and the morning were the first day.",
@@ -84,7 +84,7 @@ public class Reference
         {
             if (_scriptures[_book].TryGetValue(i, out string value))
             {
-                verses.Add(value);
+                 verses.Add($"{i}: {value}");
             }
         }
         return string.Join(" ", verses);
