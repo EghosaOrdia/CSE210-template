@@ -6,7 +6,7 @@ class Program
     {
         Console.WriteLine("Hello World! This is the ScriptureMemorizer Project.");
 
-        Reference reference = new("Proverbs", 1, 1);
+        Reference reference = new("proverbs", 1, 1);
         bool quit = false;
 
         while (!quit)
@@ -24,7 +24,7 @@ class Program
             else
             {
                 Console.WriteLine("Enter scripture(Proverbs, Genesis, Psalms, Revelations) eg. Proverbs: ");
-                string book = Console.ReadLine();
+                string book = Console.ReadLine().ToLower();
                 Console.WriteLine("Enter chapter(only chapter 1 available): ");
                 int chapter = int.Parse(Console.ReadLine());
                 Console.WriteLine("Enter start verse(only verses 1-6 available): ");
