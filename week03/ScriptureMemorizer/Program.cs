@@ -1,3 +1,4 @@
+// Wrote and implemented the Scripture generator class which generates a random scripture from a predefined list 
 using System;
 
 class Program
