@@ -6,6 +6,7 @@ public class Order
     public Order(Customer customer)
     {
         _customer = customer;
+        _products = [];
     }
 
     public void AddProduct(Product product)
@@ -31,7 +32,6 @@ public class Order
         return _products
           .Select(p => new PackingLabel { _name = p.GetName(), _id = p.GetId() })
           .ToList();
-       
     }
 
     public ShippingLabel GetShippingLabel()
