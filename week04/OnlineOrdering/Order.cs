@@ -1,7 +1,17 @@
 public class Order
 {
     private List<Product> _products;
-    private List<Customer> _customers;
+    private Customer _customer;
+
+    public Order(Customer customer)
+    {
+        _customer = customer;
+    }
+
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
+    }
 
     public float GetTotalCost()
     {
@@ -10,22 +20,26 @@ public class Order
         {
             total += p.GetTotalCost();
         }
+
+        // Add shipping cost
+        total += _customer.LivesInUSA() ? 5 : 35;
         return total;
     }
 
     public List<PackingLabel> GetPackingLabel()
     {
-        List<PackingLabel> packingLabels = _products
-        .Select(p => new PackingLabel { _name = p.GetName(), _id = p.GetId() })
-        .ToList();
-        return packingLabels;
+        return _products
+          .Select(p => new PackingLabel { _name = p.GetName(), _id = p.GetId() })
+          .ToList();
+       
     }
 
-    public List<ShippingLabel> GetShippingLabel()
+    public ShippingLabel GetShippingLabel()
     {
-        List<ShippingLabel> shippingLabels = _customers
-        .Select(c => new ShippingLabel { _name = c.GetName(), _address = c.GetAddress() })
-        .ToList();
-        return shippingLabels;
+        return new ShippingLabel
+        {
+            _name = _customer.GetName(),
+            _address = _customer.GetAddress()
+        };
     }
 }

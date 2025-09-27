@@ -3,7 +3,13 @@ public class Customer
     private string _name;
     private Address _address;
 
-    public Boolean LivesInUSA()
+    public Customer(string name, Address address)
+    {
+        _name = name;
+        _address = address;
+    }
+
+    public bool LivesInUSA()
     {
         return _address.LivesInUSA();
     }
@@ -12,7 +18,7 @@ public class Customer
     {
         return _name;
     }
-    
+
     public Address GetAddress()
     {
         return _address;
