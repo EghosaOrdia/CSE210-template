@@ -41,17 +41,21 @@ public class ReflectingActivity : Base
 
         Console.Clear();
 
+
+        int totalDuration = _duration * 1000;
+        double timePerQuestion = totalDuration / 2;
+
         _endTime = DateTime.Now.AddSeconds(_duration);
 
         while (DateTime.Now < _endTime)
         {
             Console.Write("> How did you feel when it happened? ");
-            SpinnerAnimation(10000);
-            Console.WriteLine("\n");
+            SpinnerAnimation((int) timePerQuestion);
+            Console.WriteLine();
 
             Console.Write("> What is your favourite thing about this experience? ");
-            SpinnerAnimation(10000);
-            Console.WriteLine("\n");
+            SpinnerAnimation((int) timePerQuestion);
+            Console.WriteLine();
         }
 
         Console.WriteLine("Well done!!\n");
