@@ -1,16 +1,29 @@
 public class ReflectingActivity : Base
 {
     private List<string> _prompts;
+    private List<string> _reflections;
     private Random _randomGenerator;
     public ReflectingActivity()
     {
         _activity = "Reflecting";
         _prompts = new List<string>()
         {
-        "Think of a time when you stood up for someone else.",
-        "Think of a time when you did something really difficult.",
-        "Think of a time when you helped someone in need.",
-        "Think of a time when you did something truly selfless.",
+            "Think of a time when you stood up for someone else.",
+            "Think of a time when you did something really difficult.",
+            "Think of a time when you helped someone in need.",
+            "Think of a time when you did something truly selfless.",
+        };
+        _reflections = new List<string>()
+        {
+            "Why was this experience meaningful to you?",
+            "Have you ever done anything like this before?",
+            "How did you get started?",
+            "How did you feel when it was complete?",
+            "What made this time different than other times when you were not as successful?",
+            "What is your favorite thing about this experience?",
+            "What could you learn from this experience that applies to other sit,uations?",
+            "What did you learn about yourself through this experience?",
+            "How can you keep this experience in mind in the future?",
         };
         _randomGenerator = new Random();
     }
@@ -48,13 +61,12 @@ public class ReflectingActivity : Base
 
         _endTime = DateTime.Now.AddSeconds(_duration);
 
-        while (DateTime.Now < _endTime)
+        while (DateTime.Now < _endTime && _reflections.Count > 0)
         {
-            Console.Write("> How did you feel when it happened? ");
-            SpinnerAnimation((int) timePerQuestion);
-            Console.WriteLine();
-
-            Console.Write("> What is your favourite thing about this experience? ");
+            int randomReflectionIndex = _randomGenerator.Next(_reflections.Count);
+            string randomReflection = _reflections[randomReflectionIndex];
+            _reflections.RemoveAt(randomReflectionIndex);
+            Console.Write($"> {randomReflection} ");
             SpinnerAnimation((int) timePerQuestion);
             Console.WriteLine();
         }
