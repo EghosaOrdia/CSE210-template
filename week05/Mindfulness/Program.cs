@@ -1,3 +1,4 @@
+// Creativity feature: Modularized ShowSpinning Animation and CountDown into BaseActivity for reuse
 using System;
 
 class Program
