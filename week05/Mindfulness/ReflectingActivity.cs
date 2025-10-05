@@ -41,12 +41,14 @@ public class ReflectingActivity : Base
         Console.Write("You may begin in: ");
         CountDown(4);
 
-        Co
+        Console.Clear();
 
         while (DateTime.Now < _endTime)
         {
             Console.Write("> How did you feel when it happened? ");
             SpinnerAnimation(10000);
+            Console.WriteLine("\n");
+            
             Console.Write("> What is your favourite thing about this experience? ");
             Console.WriteLine("\n");
         }
