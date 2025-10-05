@@ -1,0 +1,53 @@
+public class BreathingActivity : Base
+{
+
+    public BreathingActivity()
+    {
+        _activity = "Breathing";
+    }
+
+    public void StartActivity()
+    {
+        string welcome = GetWelcomeMessage("Breathing");
+        Console.WriteLine(welcome);
+
+        string description = GetDescription("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.\n");
+        Console.WriteLine(description);
+
+        SetDuration();
+        Console.Clear();
+
+        // Console.Clear();
+        Console.Write("Get ready...");
+        SpinnerAnimation(3000);
+        Console.Clear();
+
+        _endTime = DateTime.Now.AddSeconds(_duration);
+
+        while (DateTime.Now < _endTime)
+        {
+            Console.Write("Breathe in...");
+            for (int i = 4; i >= 1; i--)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+            }
+            Console.WriteLine();
+            Console.Write("Now breathe out...");
+            for (int i = 6; i >= 1; i--)
+            {
+                Console.Write(i);
+                Thread.Sleep(1000);
+                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+            }
+
+            Console.WriteLine("\n");
+            Console.WriteLine("Well done!!\n");
+            SpinnerAnimation(3000);
+        }
+
+        Console.WriteLine($"You have completed another {_duration} seconds of the {_activity} activity.");
+        SpinnerAnimation(3000);
+    }
+}
