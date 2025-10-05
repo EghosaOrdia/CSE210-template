@@ -7,7 +7,7 @@ public class BreathingActivity : Base
 
     public void StartActivity()
     {
-        string welcome = GetWelcomeMessage("Breathing");
+        string welcome = GetWelcomeMessage(_activity);
         Console.WriteLine(welcome);
 
         string description = GetDescription("This activity will help you relax by walking you through breathing in and out slowly. Clear your mind and focus on your breathing.\n");
