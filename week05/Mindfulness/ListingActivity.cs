@@ -20,13 +20,20 @@ public class LisitngActivity : Base
 
         Console.Write("Get ready...");
         SpinnerAnimation(3000);
-        Console.Clear();
+
+        int randomIndex = _randomGenerator.Next(_prompts.Count);
+        string randonPrompt = _prompts[randomIndex];
+        Console.WriteLine("List as many things as you can to the following prompts:");
+        Console.WriteLine($"--- {randonPrompt} ---");
+        Console.Write("You may begin in: ");
+        CountDown(5);
 
         _endTime = DateTime.Now.AddSeconds(_duration);
 
         while (DateTime.Now < _endTime)
         {
-            Console.WriteLine("List as many things as you can to the following prompts:");
+           Console.Write("> ");
+           Console.ReadLine();
         }
 
     }
