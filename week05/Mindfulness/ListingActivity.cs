@@ -5,6 +5,13 @@ public class LisitngActivity : Base
     public LisitngActivity()
     {
         _activity = "Listing";
+        _prompts = new List<string>()
+        {
+            "When have you felt the Holy Ghost this month?",
+            "Who are some people that you love?",
+            "Who are some people that you have helped this week?",
+            "What are some of your personal strengths?",
+        };
         _randomGenerator = new Random();
     }
     public void StartActivity()
@@ -25,17 +32,21 @@ public class LisitngActivity : Base
         string randonPrompt = _prompts[randomIndex];
         Console.WriteLine("List as many things as you can to the following prompts:");
         Console.WriteLine($"--- {randonPrompt} ---");
-        Console.Write("You may begin in: ");
+        Console.WriteLine("You may begin in: ");
         CountDown(5);
 
         _endTime = DateTime.Now.AddSeconds(_duration);
 
+        List<string> items = new List<string>();
         while (DateTime.Now < _endTime)
         {
-           Console.Write("> ");
-           Console.ReadLine();
+            Console.Write("> ");
+            string userResponse = Console.ReadLine();
+            items.Add(userResponse);
         }
-
+        Console.WriteLine($"You listed {items.Count} items!\n");
+        Console.WriteLine("Well done!!\n");
+        SpinnerAnimation(3000);
     }
 
 }

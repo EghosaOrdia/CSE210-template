@@ -6,6 +6,7 @@ class Program
     {
         BreathingActivity breathingActivity = new();
         ReflectingActivity reflectingActivity = new();
+        LisitngActivity lisitngActivity = new();
         bool continueActivity = true;
         while (continueActivity)
         {
@@ -28,6 +29,11 @@ class Program
             {
                 Console.Clear();
                 reflectingActivity.StartActivity();
+            }
+            else if (userInput == 3)
+            {
+                Console.Clear();
+                lisitngActivity.StartActivity();
             }
             else if (userInput == 4)
             {
