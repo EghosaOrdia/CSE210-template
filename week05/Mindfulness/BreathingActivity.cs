@@ -43,11 +43,13 @@ public class BreathingActivity : Base
             }
 
             Console.WriteLine("\n");
-            Console.WriteLine("Well done!!\n");
-            SpinnerAnimation(3000);
         }
+
+        Console.WriteLine("Well done!!\n");
+        SpinnerAnimation(3000);
 
         Console.WriteLine($"You have completed another {_duration} seconds of the {_activity} activity.");
         SpinnerAnimation(3000);
+        Console.Clear();
     }
 }
