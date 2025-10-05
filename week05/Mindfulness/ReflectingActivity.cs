@@ -29,8 +29,6 @@ public class ReflectingActivity : Base
         SpinnerAnimation(3000);
         Console.Clear();
 
-        _endTime = DateTime.Now.AddSeconds(_duration);
-
         Console.WriteLine("Consider the following prompt:\n");
         int randomIndex = _randomGenerator.Next(_prompts.Count);
         string randonPrompt = _prompts[randomIndex];
@@ -43,13 +41,16 @@ public class ReflectingActivity : Base
 
         Console.Clear();
 
+        _endTime = DateTime.Now.AddSeconds(_duration);
+
         while (DateTime.Now < _endTime)
         {
             Console.Write("> How did you feel when it happened? ");
             SpinnerAnimation(10000);
             Console.WriteLine("\n");
-            
+
             Console.Write("> What is your favourite thing about this experience? ");
+            SpinnerAnimation(10000);
             Console.WriteLine("\n");
         }
 
