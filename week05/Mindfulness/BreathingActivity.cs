@@ -1,6 +1,5 @@
 public class BreathingActivity : Base
 {
-
     public BreathingActivity()
     {
         _activity = "Breathing";
@@ -17,7 +16,6 @@ public class BreathingActivity : Base
         SetDuration();
         Console.Clear();
 
-        // Console.Clear();
         Console.Write("Get ready...");
         SpinnerAnimation(3000);
         Console.Clear();
@@ -27,20 +25,10 @@ public class BreathingActivity : Base
         while (DateTime.Now < _endTime)
         {
             Console.Write("Breathe in...");
-            for (int i = 4; i >= 1; i--)
-            {
-                Console.Write(i);
-                Thread.Sleep(1000);
-                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-            }
+            CountDown(4);
             Console.WriteLine();
             Console.Write("Now breathe out...");
-            for (int i = 6; i >= 1; i--)
-            {
-                Console.Write(i);
-                Thread.Sleep(1000);
-                Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
-            }
+            CountDown(6);
 
             Console.WriteLine("\n");
         }
