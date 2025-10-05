@@ -52,4 +52,13 @@ public class Base
             Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
         }
     }
+    protected void CountDown(int duration)
+    {
+        for (int i = duration; i >= 1; i--)
+        {
+            Console.Write(i);
+            Thread.Sleep(1000);
+            Console.SetCursorPosition(Console.CursorLeft - 1, Console.CursorTop);
+        }
+    }
 }

@@ -5,6 +5,7 @@ class Program
     static void Main(string[] args)
     {
         BreathingActivity breathingActivity = new();
+        ReflectingActivity reflectingActivity = new();
         bool continueActivity = true;
         while (continueActivity)
         {
@@ -22,6 +23,11 @@ class Program
             {
                 Console.Clear();
                 breathingActivity.StartActivity();
+            }
+            else if (userInput == 2)
+            {
+                Console.Clear();
+                reflectingActivity.StartActivity();
             }
             else if (userInput == 4)
             {
