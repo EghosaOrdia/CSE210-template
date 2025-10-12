@@ -11,7 +11,13 @@ public class Goal{
         return description;
     }
 
-    public int GetPoints(){
+    public int GetPoints()
+    {
         return points;
+    }
+    
+    public virtual string GetDetailsString()
+    {
+        return $"[] {title}";
     }
 }

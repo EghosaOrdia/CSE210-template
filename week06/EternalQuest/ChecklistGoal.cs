@@ -1,27 +1,31 @@
 public class ChecklistGoal: Goal
 {
-    private int goalBonusCount;
-    private int goalBonus;
-    private int goalCount;
-    public ChecklistGoal(string inputTitle, string inputDescription, int inputPoints, int inputGoalBonusCount, int inputGoalBonus)
+    private int targetCount;
+    private int currentCount;
+    private int bonus;
+    public ChecklistGoal(string inputTitle, string inputDescription, int inputPoints, int inputTargetCount, int inputBonus)
     {
         title = inputTitle;
         description = inputDescription;
         points = inputPoints;
-        goalCount = 0;
-        goalBonusCount = inputGoalBonusCount;
-        goalBonus = inputGoalBonus;
+        bonus = inputBonus;
+        targetCount = inputTargetCount;
+        currentCount = 0;
     }
-    public int GetGoalCount()
+    public int GetTargetCount()
     {
-        return goalCount;
+        return targetCount;
     }
     public int GetGoalBonusCount()
     {
-        return goalBonusCount;
+        return targetCount;
     }
     public int GetGoalBonus()
     {
-        return goalBonus;
+        return bonus;
+    }
+    public override string GetDetailsString()
+    {
+        return $"[] {title} -- Completed {currentCount}/{targetCount}";
     }
 }
