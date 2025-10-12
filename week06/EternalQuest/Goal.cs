@@ -2,6 +2,7 @@ public class Goal{
     protected int points;
     protected string title;
     protected string description;
+    protected bool isComplete;
 
     public string GetTitle(){
         return title;
@@ -15,9 +16,15 @@ public class Goal{
     {
         return points;
     }
-    
+
     public virtual string GetDetailsString()
     {
-        return $"[] {title}";
+        return $"{(isComplete ? "[x]" : "[]")} {title}";
     }
+    public bool IsComplete()
+    {
+        return isComplete;
+    }
+
+    public virtual void RecordEvent(){}
 }

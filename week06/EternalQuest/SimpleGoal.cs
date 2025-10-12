@@ -5,5 +5,10 @@ public class SimpleGoal: Goal
         title = inputTitle;
         description = inputDescription;
         points = inputPoints;
+        isComplete = false;
     }
+    public override void RecordEvent()
+    {
+        isComplete = true;
+    }  
 }

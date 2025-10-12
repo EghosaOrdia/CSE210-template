@@ -26,7 +26,7 @@ class Program
                 goalManager.CreateGoal();
             } else if (userInput == 2)
             {
-                goalManager.FetchGoals();
+                goalManager.ListGoalDetails();
             } else if (userInput == 6)
             {
                 break;

@@ -47,7 +47,7 @@ public class GoalManager
         }
     }
 
-    public void FetchGoals()
+    public void ListGoalDetails()
     {
         // goals.ForEach(goal => Console.WriteLine(goal.GetTitle()));
         for (int i = 0; i < goals.Count; i++)
@@ -55,7 +55,7 @@ public class GoalManager
             Console.WriteLine($"{i + 1}. {goals[i].GetDetailsString()}");
         }
     }
-    
+
     public int GetTotalPoints()
     {
         return totalPoints;
