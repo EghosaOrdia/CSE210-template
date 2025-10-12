@@ -14,6 +14,7 @@ public class GoalManager
         Console.WriteLine("  1. Simple Goal");
         Console.WriteLine("  2. Eternal Goal");
         Console.WriteLine("  3. Checklist Goal");
+        Console.WriteLine("Which type of goal would you like to create? ");
         int userInput = int.Parse(Console.ReadLine());
 
         Console.Write("What is the name of your goal? ");
