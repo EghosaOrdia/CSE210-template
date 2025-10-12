@@ -52,7 +52,7 @@ public class GoalManager
         // goals.ForEach(goal => Console.WriteLine(goal.GetTitle()));
         for (int i = 0; i < goals.Count; i++)
         {
-            Console.WriteLine($"{i + 1}. [] {goals[i].GetDetailsString()}");
+            Console.WriteLine($"{i + 1}. {goals[i].GetDetailsString()}");
         }
     }
     
