@@ -1,31 +1,56 @@
-public class ChecklistGoal: Goal
+using System;
+
+public class ChecklistGoal : Goal
 {
-    private int targetCount;
-    private int currentCount;
-    private int bonus;
-    public ChecklistGoal(string inputTitle, string inputDescription, int inputPoints, int inputTargetCount, int inputBonus)
+    private int _amountCompleted;
+    private int _target;
+    private int _bonus;
+    private int _currentPoints;
+
+    public ChecklistGoal(string name, string desc, int points, int target, int bonus)
+        : base(name, desc, points)
     {
-        title = inputTitle;
-        description = inputDescription;
-        points = inputPoints;
-        bonus = inputBonus;
-        targetCount = inputTargetCount;
-        currentCount = 0;
+        _target = target;
+        _bonus = bonus;
+        _amountCompleted = 0;
+        _currentPoints = 0;
     }
-    public int GetTargetCount()
+
+    public override int RecordEvent()
     {
-        return targetCount;
+        if (_amountCompleted < _target)
+        {
+            _amountCompleted++;
+            _currentPoints += _points;
+            int earned = _points;
+
+            if (_amountCompleted == _target)
+            {
+                earned += _bonus;
+                _currentPoints += _bonus;
+            }
+
+            return earned;
+        }
+        return 0;
     }
-    public int GetGoalBonusCount()
+
+    public void SetProgress(int completed, int earnedPoints)
     {
-        return targetCount;
+        _amountCompleted = completed;
+        _currentPoints = earnedPoints;
     }
-    public int GetGoalBonus()
-    {
-        return bonus;
-    }
+
+    public override bool IsComplete() => _amountCompleted >= _target;
+
     public override string GetDetailsString()
     {
-        return $"[] {title} -- Completed {currentCount}/{targetCount}";
+        string status = IsComplete() ? "[X]" : "[ ]";
+        return $"{status} {_shortName} ({_description}) — {_amountCompleted}/{_target}";
+    }
+
+    public override string ToCsvRecord()
+    {
+        return $"ChecklistGoal,{_shortName},{_description},{_points},{_target},{_bonus},{_bonus},{_amountCompleted},{_currentPoints},{IsComplete()}";
     }
 }

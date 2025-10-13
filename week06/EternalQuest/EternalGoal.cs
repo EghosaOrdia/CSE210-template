@@ -1,21 +1,25 @@
-public class EternalGoal: Goal
+using System;
+
+public class EternalGoal : Goal
 {
-    private int currentCount;
-    public EternalGoal(string inputTitle, string inputDescription, int inputPoints)
+    private int _totalEarned;
+
+    public EternalGoal(string name, string desc, int points)
+        : base(name, desc, points)
     {
-        title = inputTitle;
-        description = inputDescription;
-        points = inputPoints;
-        currentCount = 0;
+        _totalEarned = 0;
     }
 
-    public int GetGoalCount()
+    public override int RecordEvent()
     {
-        return currentCount;
+        _totalEarned += _points;
+        return _points;
     }
 
-    public override string GetDetailsString()
+    public override bool IsComplete() => false;
+
+    public override string ToCsvRecord()
     {
-        return $"[] {title} -- Completed {currentCount}";
+        return $"EternalGoal,{_shortName},{_description},{_points},0,0,0,0,{_totalEarned},false";
     }
 }
