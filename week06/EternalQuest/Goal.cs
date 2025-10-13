@@ -22,11 +22,9 @@ public abstract class Goal
         return $"{status} {_shortName} ({_description})";
     }
 
-    // Each goal will provide its own CSV record (excluding header)
-    public abstract string ToCsvRecord();
+       public abstract string ToCsvRecord();
 
-    // Parse CSV into a Goal instance
-    public static Goal FromCsvRecord(string csv)
+      public static Goal FromCsvRecord(string csv)
     {
         string[] parts = csv.Split(',');
 
@@ -35,7 +33,6 @@ public abstract class Goal
         string desc = parts[2];
         int points = int.Parse(parts[3]);
 
-        // CSV columns:
         // 0:type,1:title,2:desc,3:points,4:total_count,5:bonus,6:bonus_count,7:current_count,8:current_points,9:is_completed
 
         switch (type)
